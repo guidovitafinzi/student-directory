@@ -1,33 +1,25 @@
-#let's put all the student into an array
-students = [
-  {:name => "Christopher Ward", :cohort => :february},
-  {:name => "Rizwan Ali", :cohort => :february},
-  {:name => "Vanessa Virgitti", :cohort => :february}, 
-  {:name => "Tommaso Bratto", :cohort => :february},
-  {:name => "Joe Newman", :cohort => :february},
-  {:name => "Loris Fochesato", :cohort => :february}, 
-  {:name => "Guido Vita Finzi", :cohort => :february}, 
-  {:name => "Tom Coakes", :cohort => :february},
-  {:name => "Kevin Lanzon", :cohort => :february}, 
-  {:name => "Sebastien Pires", :cohort => :february}, 
-  {:name => "Yannick Brunner", :cohort => :february}, 
-  {:name => "Costas Sarris", :cohort => :february}, 
-  {:name => "Diego Romero", :cohort => :february},
-  {:name => "Erik Griffn", :cohort => :february},
-  {:name => "Thomas Strothjohann", :cohort => :february}, 
-  {:name => "Alex Parkinson", :cohort => :february}, 
-  {:name => "Carrie Christenson", :cohort => :february}, 
-  {:name => "Julian Veling", :cohort => :february}, 
-  {:name => "Edward Brown", :cohort => :february}, 
-  {:name => "Meads Chalcroft", :cohort => :february}, 
-  {:name => "Sean Haughton", :cohort => :february}, 
-  {:name => "Paul Fitzgerald", :cohort => :february}, 
-  {:name => "Phil Brockwell", :cohort => :february}, 
-  {:name => "Kate Beavis", :cohort => :february}
-]
+def input_students
+	puts "Please enter the names of the students"
+	puts "To finish, just hit return twice"
+	# create an empty array
+	students = []
+	# get the first name
+	name = gets.chomp
+	#while the name is not empty, repeat this code
+	while !name.empty? do
+		#add the student hash to the array
+		students << {:name => name, :cohort => :february}
+		puts "Now we have #{students.length} students"
+		#get another name from the user
+		name = gets.chomp
+	end
+	#return array of students
+	students
+end
+
 
 def print_header
-	puts "The students of my cohort at Makers Acaemy"
+	puts "The students of my cohort at Makers Academy"
 	puts "------------------"
 end
 
@@ -43,6 +35,7 @@ def print_footer(names)
 end
 
 #calling the methods
+students = input_students
 print_header
 print(students)
 print_footer(students)
